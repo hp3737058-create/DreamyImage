@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DreamyImage — AI Image Generator by Hetal Patel</title>
+
+  <!-- Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="dreamy.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="logo">D</div>
+        <div class="brand-text">
+          <div class="brand-title">DreamyImage</div>
+          <div class="brand-sub">AI Image Generator by Hetal Patel</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#" id="aboutBtn">How it works</a>
+        <a href="#" id="portfolioBtn">Back to Portfolio</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main">
+    <section class="hero card">
+      <h1>Create images from text — fast.</h1>
+      <p class="lead">Type a description, press <strong>Generate</strong>, and see AI-style images (Lexica results).</p>
+
+      <form id="promptForm" class="prompt-form" autocomplete="off">
+        <input id="promptInput" type="text" placeholder="e.g. a futuristic city at sunset, cinematic, vibrant colors" required />
+        <select id="sizeSelect" aria-label="Image size">
+          <option value="512">512px</option>
+          <option value="768">768px</option>
+          <option value="1024">1024px</option>
+        </select>
+        <button id="generateBtn" class="btn primary">Generate</button>
+      </form>
+
+      <div class="controls">
+        <label class="chk">
+          <input type="checkbox" id="multiple" checked>
+          Show multiple images
+        </label>
+        <div class="hint">Tip: Keep prompts descriptive — style, lighting, color, subject.</div>
+      </div>
+    </section>
+
+    <section id="results" class="results">
+      <div id="status" class="status">Enter a prompt and press Generate.</div>
+      <div id="grid" class="grid"></div>
+    </section>
+
+    <section class="about card" id="how">
+      <h2>How DreamyImage works</h2>
+      <p>DreamyImage searches a public Lexica dataset of AI-generated imagery for prompts similar to yours and displays visual results. This is great for quick demos and inspiration.</p>
+      <ul>
+        <li>No API key required (uses public Lexica search).</li>
+        <li>If the browser blocks requests due to CORS, run with Live Server or use a simple proxy.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <small>© 2025 Hetal Patel • DreamyImage — demo project</small>
+    </div>
+  </footer>
+
+  <!-- template for grid items (cloned by JS) -->
+  <template id="imgTemplate">
+    <figure class="card image-card">
+      <img alt="AI result">
+      <figcaption>
+        <div class="cap-left">
+          <button class="download" title="Download">⬇</button>
+          <button class="view" title="Open full">🔍</button>
+        </div>
+        <div class="cap-right">
+          <a class="source" target="_blank" rel="noopener">Source</a>
+        </div>
+      </figcaption>
+    </figure>
+  </template>
+
+  <script src="dreamy.js"></script>
+</body>
+</html>
